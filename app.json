@@ -23,7 +23,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+        "package": "com.codingmechanic.mapcuny",
+        "config": {
+          "googleMaps": {"apiKey": "<AIzaSyArZz3ZnUshBTHGvpPptbT2IUeL0h5GHg0>" }
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
