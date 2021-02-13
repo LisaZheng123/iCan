@@ -9,11 +9,11 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate(MainScreen)}
+      <Button style={styles.fullScreenButton}
+        title="Welcome!"
+        onPress={() => navigation.navigate("Details")}
       />
     </View>
   );
@@ -38,5 +38,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  fullScreenButton: {
+    width: "100%",
+    height: "50%",
+    position: "absolute"
   },
 });
