@@ -1,36 +1,55 @@
-import React from 'react';
-import { ImageBackground, StyleSheet, View, Button } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { Button, Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import MapView from 'react-native-maps'
 
-import MainScreen from './MainScreen';
-
-function WelcomeScreen(props) {
-    return (
-        <ImageBackground 
-            style={styles.background}
-            source={require("../assets/demo.jpg")}
+export default class App extends React.Component {
+    toggleModal = () => {
+        alert(
+            "Visited garbage cans: 4 \nTotal bathroom visits: 1 \nLongest bathroom break: 6m 5s \nVisited battery stations: 2 \nTotal charging time:",
+            {text: "Stats"}
+        );
+    }
+    render() {
+        return (
+        <MapView
+            style={{
+            flex: 1,
+            flexDirection: "column",
+            alignItems: "flex-start"
+            
+            }}
+            initialRegion={{
+            latitude: 40.750610,
+            longitude: -73.975242,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421
+            }}
         >
-            <View style={styles.loginButton}>
-            <Button
-                title="Go to Main"
-                onPress={() => navigation.navigate({MainScreen})}
-            />
-            </View>
-        </ImageBackground>
-    );
+            <TouchableOpacity activeOpacity = { .5 } onPress={this.toggleModal}>
+            
+                <Image style={styles.image} source={require('../assets/stats.jpg')} />
+            
+            </TouchableOpacity>
+            <Image 
+                style={styles.image}
+                source={require("../assets/battery.jpeg")}
+            ></Image>
+            <Image 
+                style={styles.image}
+                source={require("../assets/garbage.jpeg")}
+            ></Image>
+            <Image 
+                style={styles.image}
+                source={require("../assets/looo.jpg")}
+            ></Image>
+        </MapView>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        justifyContent: "flex-end",
-    },
-    loginButton: {
-        width: "100%",
-        height: 70,
-        backgroundColor: "navy",
+    image: {
+        height: 80,
+        width: 60,         
     }
 })
-
-export default WelcomeScreen;

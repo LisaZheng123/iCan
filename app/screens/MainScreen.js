@@ -7,11 +7,7 @@ function MainScreen(props) {
     return (
         <View style={styles.container}>
             <View style={styles.icon}></View>
-            <Image 
-                style={styles.image}
-                source={require("../assets/demo2.jpg")}
-                >
-            </Image>
+            <Text>Stats</Text>
         </View>
     );
 }
